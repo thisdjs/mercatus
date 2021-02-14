@@ -15,8 +15,12 @@
         "clean": "gatsby clean"
     },
     "dependencies": {
+        "@emotion/react": "^11.1.5",
+        "@react-icons/all-files": "^4.1.0",
+        "@rebass/preset": "^4.0.5",
         "gatsby": "^2.32.3",
         "react": "^16.13.1",
+        "react-burger-menu": "^3.0.3",
         "react-dom": "^16.13.1",
         "react-responsive-carousel": "^3.2.12",
         "rebass": "^4.0.7"

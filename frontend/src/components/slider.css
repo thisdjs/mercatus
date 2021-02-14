@@ -6,12 +6,6 @@ tablet landscape: > 1024px
 laptop: > 1280px 
 */
 
-@media (min-width: 640px) {
-}
-
-@media (min-width: 768px) {
-}
-
 @media (min-width: 1024px) {
   .carousel .slide img {
     height: 680px;
@@ -21,7 +15,4 @@ laptop: > 1280px
   .carousel .slide {
     height: 680px;
   }
-}
-
-@media (min-width: 1280px) {
 }
