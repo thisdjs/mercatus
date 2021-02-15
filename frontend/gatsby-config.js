@@ -2,5 +2,5 @@ module.exports = {
   siteMetadata: {
     title: "mercatus",
   },
-  plugins: [],
+  plugins: [`gatsby-plugin-styled-components`, `gatsby-plugin-sass`],
 };

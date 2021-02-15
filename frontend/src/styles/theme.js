@@ -16,7 +16,7 @@ const theme = {
     secondary: "#fffffe",
     terciary: "#d9376e",
   },
-  breakpoints: ["640", "768", "1024", "1280"],
+  breakpoints: ["640px", "768px", "1024px", "1280px"],
 };
 
 export default theme;

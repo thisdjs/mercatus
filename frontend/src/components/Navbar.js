@@ -1,12 +1,11 @@
 /** @jsx jsx */
-import { jsx, useTheme, css } from "@emotion/react";
+import { jsx, useTheme } from "@emotion/react";
 import { Flex, Box, Text, Link } from "rebass";
-import { FiUser } from "@react-icons/all-files/fi/FiUser";
-import { FiShoppingCart } from "@react-icons/all-files/fi/FiShoppingCart";
+import { User, ShoppingCart } from "css.gg";
 import BurguerMenu from "./BurguerMenu";
 
 function Navbar() {
-  const { colors, breakpoints } = useTheme();
+  const { colors } = useTheme();
   return (
     <Flex
       px={3}
@@ -17,6 +16,7 @@ function Navbar() {
       alignItems="center"
     >
       <BurguerMenu />
+      <Box mx="auto" sx={{ display: ["block", "block", "none", "none"] }} />
       <Text
         p={2}
         mx={2}
@@ -27,35 +27,24 @@ function Navbar() {
         Mercatus
       </Text>
       <Box mx="auto" />
-      <Link
-        p={2}
-        mx={2}
-        variant="nav"
-        href="#"
-        color={colors.paragraph}
-        css={{ textDecoration: "none" }}
-      >
-        <FiUser
-          css={{ height: "18px", width: "18px", verticalAlign: "middle" }}
-        />
-        <Text
-          as="span"
-          pl={2}
-          mb={2}
-          fontSize={15}
-          css={css`
-            @media (max-width: ${breakpoints[2]}px) {
-              display: none;
-            }
-          `}
+      <Box pr={2} sx={{ display: ["none", "none", "block", "block"] }}>
+        <Link variant="nav" href="#" color={colors.paragraph}>
+          <User />
+        </Link>
+      </Box>
+      <Box mr={3} sx={{ display: ["none", "none", "block", "block"] }}>
+        <Link
+          variant="nav"
+          href="#"
+          color={colors.paragraph}
+          css={{ textDecoration: "none" }}
         >
-          David
-        </Text>
-      </Link>
-      <Link variant="nav" href="#" pl={2}>
-        <FiShoppingCart
-          css={{ height: "18px", width: "18px", verticalAlign: "middle" }}
-        />
+          <Text fontSize={15}>David</Text>
+        </Link>
+      </Box>
+
+      <Link variant="nav" href="#" ml={[0, 0, 3, 3]}>
+        <ShoppingCart />
       </Link>
     </Flex>
   );

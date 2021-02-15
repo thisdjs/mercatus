@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
-import { slide as Menu } from "react-burger-menu";
+import { slide as BMenu } from "react-burger-menu";
 import { Text } from "rebass";
-import { FiMenu } from "@react-icons/all-files/fi/FiMenu";
+import { SVG } from "css.gg";
+import { useMediaQuery } from 'react-responsive'
 
 const styles = {
   bmBurgerButton: {
@@ -16,13 +17,6 @@ const styles = {
   bmBurgerBarsHover: {
     background: "#a90000",
   },
-  bmCrossButton: {
-    height: "24px",
-    width: "24px",
-  },
-  bmCross: {
-    background: "#bdc3c7",
-  },
   bmMenuWrap: {
     position: "fixed",
     height: "100%",
@@ -35,35 +29,42 @@ const styles = {
     overflowY: "hidden",
     height: "calc(100% - 38px)",
   },
-  bmMorphShape: {
-    fill: "#373a47",
-  },
   bmItemList: {
     color: "#b8b7ad",
     padding: "0.8em",
   },
-  bmItem: {
-    display: "inline-block",
-  },
 };
 
 function BurguerMenu() {
+    const isTabletOrMobile = useMediaQuery({ maxWidth: 1024 })
   return (
-    <Menu styles={styles} noOverlay customBurgerIcon={<FiMenu />} customCrossIcon={ false }>
-      <Text as="div">
+    <BMenu
+      styles={styles}
+      noOverlay
+      customBurgerIcon={
+        <svg width="24" height="24">
+          <use xlinkHref={SVG + "#gg-menu"} />
+        </svg>
+      }
+      customCrossIcon={false}
+      width = { isTabletOrMobile ? '100vw' : 300}
+    >
+      <Text>
         <a id="home" className="menu-item" href="/">
           Home
         </a>
       </Text>
-      <Text as="div">
-      <a id="about" className="menu-item" href="/about">
-        About
-      </a>
+      <Text>
+        <a id="about" className="menu-item" href="/about">
+          About
+        </a>
       </Text>
-      <a id="contact" className="menu-item" href="/contact">
-        Contact
-      </a>
-    </Menu>
+      <Text>
+        <a id="contact" className="menu-item" href="/contact">
+          Account
+        </a>
+      </Text>
+    </BMenu>
   );
 }
 
