@@ -56,7 +56,7 @@ function BurguerMenu() {
       </Text>
       <Text>
         <a id="about" className="menu-item" href="/about">
-          About
+          prod
         </a>
       </Text>
       <Text>
