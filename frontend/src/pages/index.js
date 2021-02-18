@@ -4,7 +4,6 @@ import theme from "../styles/theme";
 import Navbar from "../components/Navbar";
 import HSlider from "../components/HomepageSlider";
 import { Box } from "rebass";
-import ProductSlider from "../components/ProductSlider";
 
 function IndexPage() {
   return (
@@ -32,9 +31,7 @@ function IndexPage() {
           maxWidth: 1280,
           mx: "auto",
         }}
-      >
-        <ProductSlider />
-      </Box>
+      ></Box>
       <Box my={3} py={3} />
     </ThemeProvider>
   );
