@@ -29,7 +29,7 @@ function Navbar() {
       <Box mx="auto" />
       <Box pr={2} sx={{ display: ["none", "none", "block", "block"] }}>
         <Link variant="nav" href="#" color={colors.paragraph}>
-          <User />
+          <User css={{ color: colors.paragraph }} />
         </Link>
       </Box>
       <Box mr={3} sx={{ display: ["none", "none", "block", "block"] }}>
@@ -44,7 +44,7 @@ function Navbar() {
       </Box>
 
       <Link variant="nav" href="#" ml={[0, 0, 3, 3]}>
-        <ShoppingCart />
+        <ShoppingCart css={{ color: colors.paragraph }} />
       </Link>
     </Flex>
   );

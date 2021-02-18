@@ -1,10 +1,12 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/react";
+import { jsx, useTheme } from "@emotion/react";
 import { slide as BMenu } from "react-burger-menu";
-import { Text } from "rebass";
+import { Link } from "rebass";
 import { SVG } from "css.gg";
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from "react-responsive";
+import "./burguerMenu.css";
 
+// styles that BMenu accepts
 const styles = {
   bmBurgerButton: {
     position: "relative",
@@ -13,9 +15,6 @@ const styles = {
   },
   bmBurgerBars: {
     background: "#373a47",
-  },
-  bmBurgerBarsHover: {
-    background: "#a90000",
   },
   bmMenuWrap: {
     position: "fixed",
@@ -33,10 +32,15 @@ const styles = {
     color: "#b8b7ad",
     padding: "0.8em",
   },
+  bmItem: {
+    outline: "none",
+    textDecoration: "none",
+  },
 };
 
 function BurguerMenu() {
-    const isTabletOrMobile = useMediaQuery({ maxWidth: 1024 })
+  const {isTabletOrMobile} = useMediaQuery({ maxWidth: 1024 });
+  const { colors } = useTheme();
   return (
     <BMenu
       styles={styles}
@@ -47,23 +51,17 @@ function BurguerMenu() {
         </svg>
       }
       customCrossIcon={false}
-      width = { isTabletOrMobile ? '100vw' : 300}
+      width={isTabletOrMobile ? "100vw" : 300}
     >
-      <Text>
-        <a id="home" className="menu-item" href="/">
-          Home
-        </a>
-      </Text>
-      <Text>
-        <a id="about" className="menu-item" href="/about">
-          prod
-        </a>
-      </Text>
-      <Text>
-        <a id="contact" className="menu-item" href="/contact">
-          Account
-        </a>
-      </Text>
+      <Link id="home" className="menu-item" href="/" color={colors.paragraph} py={2}>
+        Home
+      </Link>
+      <Link id="home" className="menu-item" href="/" color={colors.paragraph} py={2}>
+        Prod
+      </Link>
+      <Link id="home" className="menu-item" href="/" color={colors.paragraph} py={2}>
+        Account
+      </Link>
     </BMenu>
   );
 }
