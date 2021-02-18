@@ -1,0 +1,22 @@
+/* 
+mobile portrait: less than 640px
+mobile landscape: > 640px
+tablet portrait: > 768px
+tablet landscape: > 1024px
+laptop: > 1280px 
+*/
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  .homepage-main .carousel .slide img {
+    height: 680px;
+    object-fit: cover;
+  }
+  .homepage-main .carousel .slider-wrapper,
+  .homepage-main .carousel .slide {
+    height: 680px;
+  }
+}
