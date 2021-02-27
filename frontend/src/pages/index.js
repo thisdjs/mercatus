@@ -4,8 +4,13 @@ import theme from "../styles/theme";
 import Navbar from "../components/Navbar";
 import HSlider from "../components/HomepageSlider";
 import { Box } from "rebass";
+import { graphql } from "gatsby";
+import ProductSlider from "../components/ProductSlider";
 
-function IndexPage() {
+function IndexPage({ data }) {
+  const sanityImg = data.allSanityImageAsset.edges.map((img) => img.node);
+  console.log("data: ", data);
+  console.log("images: ", sanityImg);
   return (
     <ThemeProvider theme={theme}>
       <Navbar />
@@ -33,8 +38,38 @@ function IndexPage() {
         }}
       ></Box>
       <Box my={3} py={3} />
-    </ThemeProvider>
+      <ProductSlider img={sanityImg} />
+    </ThemeProvider >
   );
 }
 
 export default IndexPage;
+
+export const query = graphql`
+  query MyQuery {
+    allSanityProduct {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+    allSanityImageAsset {
+      edges {
+        node {
+          id
+          fixed {
+            base64
+            srcWebp
+            srcSetWebp
+          }
+          fluid {
+            base64
+            srcWebp
+            srcSetWebp
+          }
+        }
+      }
+    }
+  }
+`;
